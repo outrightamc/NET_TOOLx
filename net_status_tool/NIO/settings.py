@@ -25,7 +25,7 @@ SECRET_KEY = '$v-##!l7_nwk_y3w5ikw!jhw+hr0n7fehx!1i^z=fg*4bpab(3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','outright.dns-cloud.net']
 
 
 # Application definition
