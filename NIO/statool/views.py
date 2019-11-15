@@ -5,5 +5,5 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponse
 
-def index(request: HttpResponse): -> HttpResponse:
+def index(request: HttpResponse): -> HttpResponse
     return HttpResponse(<h1>Welcome to StaTool</h1>)
