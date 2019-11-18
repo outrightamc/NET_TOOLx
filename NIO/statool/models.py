@@ -11,7 +11,7 @@ class Device(models.Model):
     password = models.CharField(max_length=70)
     service_type = models.CharField(
         max_length=30, 
-        choices=(('CCA_AMERICAS', 'hey'), ('CCA_APAC', 'hey1'), ('CCA_EMEA', 'hey3'))
+        choices=(('router1', 'Router'), ('router2', 'Router+'), ('router2', 'Router++'))
     )
 
     def __str__(self) -> str:
