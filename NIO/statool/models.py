@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-class Host(models.Model):
+class Device(models.Model):
     name = models.CharField(max_length=100)
     name = models.CharField(max_length=70)
     username = models.CharField(max_length=100)
