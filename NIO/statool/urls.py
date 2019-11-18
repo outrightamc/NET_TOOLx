@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     url('', views.index),
+    url('devices', views.get_devices),
 ]
