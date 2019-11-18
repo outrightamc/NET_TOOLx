@@ -13,3 +13,6 @@ class Device(models.Model):
         max_length=30, 
         choices=(('CCA_AMERICAS', 'hey'), ('CCA_APAC', 'hey1'), ('CCA_EMEA', 'hey3'))
     )
+
+    def __str__(self) -> str:
+        return self.name
