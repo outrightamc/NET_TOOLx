@@ -11,5 +11,5 @@ class Device(models.Model):
     password = models.CharField(max_length=70)
     service_type = models.CharField(
         max_length=30, 
-        choices=('CCA_AMERICAS', 'CCA_APAC', 'CCA_EMEA')
+        choices=(('CCA_AMERICAS', 'hey'), ('CCA_APAC', 'hey1'), ('CCA_EMEA', 'hey3'))
     )
