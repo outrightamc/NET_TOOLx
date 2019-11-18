@@ -10,5 +10,6 @@ class Host(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=70)
     service_type = models.CharField(
-        max_length=30, choices=(("AM", "CCA AMERICAS"), ("AP", "CCA APAC"), ("EM", "CCA EMEA")
+        max_length=30, 
+        choices=('CCA_AMERICAS', 'CCA_APAC', 'CCA_EMEA')
     )
