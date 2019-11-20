@@ -9,8 +9,8 @@ from .models import Device
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
     context = {
-        'title' : 'Hello Personas',
-        'nickname' : 'Dear OutRight',
+        'title' : 'NIO Statool - Main Dashboard',
+        'owner' : 'NIO Team',
         'devices' : devices
     }
     return render(request, 'base.html', context)
