@@ -20,8 +20,8 @@
             </tr>
             {% for device in devices %}
             <tr>
-                <th>{{ device.name }}</th>
-                <th><a href='/device/{{device.name}}'></a> device.username }}</th>
+                <th><a href='/device/{{device.name}}'></a> {{ device.name }}</th>
+                <th>{{ device.username }}</th>
                 <th>{{ device.host }}</th>
                 <th>{{ device.platform }}</th>
             </tr>
