@@ -15,11 +15,15 @@
             <tr>
                 <th>name</th>
                 <th>username</th>
+                <th>host</th>
+                <th>platform</th>
             </tr>
             {% for device in devices %}
             <tr>
                 <th>{{ device.name }}</th>
-                <th>{{ device.username }}</th>
+                <th><a href='/device/{{device.name}}'></a> device.username }}</th>
+                <th>{{ device.host }}</th>
+                <th>{{ device.platform }}</th>
             </tr>
             {% endfor %}
         </table>      
