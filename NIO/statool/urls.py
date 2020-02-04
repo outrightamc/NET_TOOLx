@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     url('', views.index),
-    url('devices', views.get_devices),
+#    url('devices', views.get_devices),
+    url('devices/<int:device_id>', views.get_device_stats, name="device"),
 ]
