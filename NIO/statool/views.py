@@ -5,12 +5,6 @@ from django.http import HttpResponse, HttpRequest
 from .models import Device
 from napalm import get_network_driver
 
-# Create your views here.
-NAPALM_MAPPING = {
-        'cisco': 'ios',
-        'juniper':'junos',
-}
-
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
     context = {

@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+NAPALM_MAPPING = {
+    'cisco': 'ios',
+    'juniper':'junos',
+}
+
 # Create your models here.
 class Device(models.Model):
     name = models.CharField(max_length=100)
