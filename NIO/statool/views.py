@@ -10,7 +10,7 @@ def index(request: HttpRequest) -> HttpResponse:
     context = {
         'title' : 'NIO Statool - Main Dashboard',
         'owner' : 'NIO Team',
-        'devices' : devices
+        'devices' : devices,
     }
     return render(request, 'base.html', context)
 
@@ -18,9 +18,9 @@ def get_device_stats(request: HttpRequest, device_id) -> HttpResponse:
     device = Device.objects.get(pk=device_id)
     driver = get_network_driver(device.napalm_driver)
     with driver(device.host, device.username, device.password) as device_conn:
-        interface = device_conn.get_interfaces()
-        print(interfaces)
-        return HttpResponse(f'{device_id}')
+        interfaces = device_conn.get_interfaces()
+    print(interfaces)
+    return HttpResponse(f'{device_id}')
 
 #Default view, before starting to configuring
 #def get_devices(request: HttpRequest) -> HttpResponse:
