@@ -27,3 +27,4 @@ def get_device_stats(request: HttpRequest, device_id) -> HttpResponse:
 #Default view, before starting to configuring
 #def get_devices(request: HttpRequest) -> HttpResponse:
 #   pass
+# comment
