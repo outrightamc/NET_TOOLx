@@ -19,8 +19,11 @@ def get_device_stats(request: HttpRequest, device_id) -> HttpResponse:
     driver = get_network_driver(device.napalm_driver)
     with driver(device.host, device.username, device.password) as device_conn:
         interfaces = device_conn.get_interfaces()
-    print(interfaces)
-    return HttpResponse(f'{device_id}')
+    context = {
+        'device':device,
+        'interfaces':interfaces,
+    }
+    return render(request, 'device.html', context)
 
 #Default view, before starting to configuring
 #def get_devices(request: HttpRequest) -> HttpResponse:
