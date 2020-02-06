@@ -10,7 +10,7 @@ def index(request: HttpRequest) -> HttpResponse:
     context = {
         'title' : 'NIO Statool - Main Dashboard',
         'owner' : 'NIO Team',
-        'devices' : devices,
+        'devices' : devices
     }
     return render(request, 'base.html', context)
 

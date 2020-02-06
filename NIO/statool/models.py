@@ -20,7 +20,7 @@ class Device(models.Model):
     )
     platform = models.CharField(
         max_length=30, default='Firewall',
-        choices=(('cisco', 'ios'), ('junos', 'junos'))
+        choices=(('cisco', 'ios'), ('juniper', 'junos'))
     )
 
     def __str__(self) -> str:

@@ -13,6 +13,7 @@
         <h2>Services</h2>
         <table style="width:100%">
             <tr>
+                <th>id</th>
                 <th>name</th>
                 <th>username</th>
                 <th>host</th>
@@ -20,10 +21,11 @@
             </tr>
             {% for device in devices %}
             <tr>
-                <th><a href="/device/{{device.name}}">{{ device.name }}</a></th>
-                <th>{{ device.username }}</th>
-                <th>{{ device.host }}</th>
-                <th>{{ device.platform }}</th>
+                <td>{{ device.id }}</td>
+                <td><a href="{% url 'device'  device.id %}">{{ device.name }}</a></td>
+                <td>{{ device.username }}</td>
+                <td>{{ device.host }}</td>
+                <td>{{ device.platform  }}</td>
             </tr>
             {% endfor %}
         </table>      
