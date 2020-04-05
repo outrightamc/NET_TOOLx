@@ -4,6 +4,11 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from .models import Device
 from napalm import get_network_driver
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def login(request):
+    return render(request, "login.html", {})
 
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
@@ -19,10 +24,15 @@ def get_device_stats(request: HttpRequest, device_id) -> HttpResponse:
     driver = get_network_driver(device.napalm_driver)
     with driver(device.host, device.username, device.password) as device_conn:
         interfaces = device_conn.get_interfaces()
+        ipaddress = device_conn.get_interfaces_ip()
     context = {
         'device':device,
         'interfaces':interfaces,
+        'ipaddress':ipaddress,
     }
+    print(interfaces)
+    print(ipaddress)
+#    You can enable this when you want to see the debug on the terminal and read fields
     return render(request, 'device.html', context)
 
 #Default view, before starting to configuring

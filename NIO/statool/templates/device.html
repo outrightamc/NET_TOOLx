@@ -13,6 +13,8 @@
             <tr>
                 <th>Interface name</th>
                 <th>Description</th>
+                <th>IP</th>
+                <th>Mask</th>
                 <th>Enabled</th>
                 <th>Status (up/down)</th>
             </tr>
@@ -20,6 +22,18 @@
             <tr>
                 <td>{{ interface_name}}</td>
                 <td>{{ interface.description }}</td>
+            {% for ipaddress_name, ipaddress in ipaddress.items %}
+              {% if interface_name == ipaddress_name %}
+                {% for ipaddr, ip in ipaddress.ipv4.items %}
+                <td>{{ ipaddr }}</td>
+                {% endfor %}
+                {% for interface_name, ipv4 in ipaddress.ipv4.items %}
+                <td>{{ ipv4.prefix_length }}</td>
+                {% endfor %}
+              {% else %}
+              <td> -- </td>
+              {% endif %}
+            {% endfor %}
                 <td><input type="checkbox" name="name1" {% if interface.is_enabled %}checked {% endif %}>&nbsp;</td>
                 <td><input type="checkbox" name="name1" {% if interface.is_up %}checked {% endif %}>&nbsp;</td>
             </tr>
