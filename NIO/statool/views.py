@@ -7,8 +7,8 @@ from napalm import get_network_driver
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def login(request):
-    return render(request, "login.html", {})
+def home(request):
+    return render(request, "home.html", {})
 
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
