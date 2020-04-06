@@ -5,6 +5,6 @@ from django.http import HttpResponse, HttpRequest
 from napalm import get_network_driver
 from django.contrib.auth.decorators import login_required
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def home(request):
     return render(request, "home.html", {})
