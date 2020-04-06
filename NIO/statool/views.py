@@ -6,6 +6,7 @@ from .models import Device
 from napalm import get_network_driver
 from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/accounts/login/')
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
     context = {

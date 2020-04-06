@@ -10,7 +10,7 @@
     <div class="container">
         <h1>{{ title }}</h1> 
         <p>Site Manager by --> {{ owner }}</p> 
-        <h2>Services</h2>
+        <h2>Devices</h2>
         <table style="width:100%">
             <tr>
                 <th>id</th>
@@ -28,7 +28,20 @@
                 <td>{{ device.platform  }}</td>
             </tr>
             {% endfor %}
-        </table>      
+        </table>
+        <h2>Services</h2>
+        <table style="width:100%">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td><a href="{% url 'service' service.id %}">{{ service.name }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>       
     </div>
 </body>
 </html>

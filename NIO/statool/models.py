@@ -29,3 +29,10 @@ class Device(models.Model):
     @property
     def napalm_driver(self) -> str:
         return NAPALM_MAPPING[self.platform]
+
+# Services DC
+class Service(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return self.name
