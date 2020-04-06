@@ -3,12 +3,12 @@ from django.conf.urls import url
 from django.urls import path, include
 from . import views
 from django.contrib.auth.views import LoginView
-from .views import home
+
+from . import views
+from accounts.views import login_view
 
 urlpatterns = [
 # below line ('') will show default page for http://localhost:7777 requests
-    path('', home),
-#    path('', views.index),
-#    path('login/', login),
+    path('', views.index),
     path('devices/<int:device_id>', views.get_device_stats, name="device"),
 ]
