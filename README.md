@@ -11,17 +11,11 @@ Goals Achieved
 
 Django Project Name:  NIO
 ====================
-
-App1:     statool
-App2:     xxxxxxx
-App3:     xxxxxxx
-
+- App1:     statool
+- App2:     xxxxxxx
+- App3:     xxxxxxx
 
 
 File/Site Structure
 ===================
-
-rasp:7777 
-    --> home (authentication)
-        --> statool
-            --> devices output
+rasp:7777 --> home (authentication) --> statool--> devices output
