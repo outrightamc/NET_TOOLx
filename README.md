@@ -12,7 +12,7 @@ Goals Achieved
 Django Project Name:  NIO
 ====================
 - App1:     statool
-- App2:     xxxxxxx
+- App2:     accounts
 - App3:     xxxxxxx
 
 
