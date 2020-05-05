@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
+#from django.contrib.auth.models import Device
 
 NAPALM_MAPPING = {
     'cisco': 'ios',
@@ -33,6 +33,11 @@ class Device(models.Model):
 # Services DC
 class Service(models.Model):
     name = models.CharField(max_length=100)
+    devices = models.ForeignKey(Device, null=True, on_delete= models.SET_NULL)
+#        max_length=30, default='000000',
+#        choices=(('router', 'Router'), ('switch', 'Switch'), ('firewall', 'Firewall'))
+#    )
+
 
     def __str__(self) -> str:
         return self.name
