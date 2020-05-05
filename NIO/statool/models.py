@@ -33,11 +33,7 @@ class Device(models.Model):
 # Services DC
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    devices = models.ForeignKey(Device, null=True, on_delete= models.SET_NULL)
-#        max_length=30, default='000000',
-#        choices=(('router', 'Router'), ('switch', 'Switch'), ('firewall', 'Firewall'))
-#    )
-
+    devices = models.ForeignKey(Device, null=True, blank=True, on_delete= models.SET_NULL)
 
     def __str__(self) -> str:
         return self.name

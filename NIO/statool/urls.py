@@ -16,4 +16,6 @@ urlpatterns = [
     path('', views.home, name='network-tools-home'),
     path('statool/', views.statool, name='statool-home'),
     path('devices/<int:device_id>', views.get_device_stats, name="device"),
+    path('services/<int:service_id>', views.get_device_stats, name="service"),
+#    path('services/', views.ccasp, name="ccasp"),
 ]

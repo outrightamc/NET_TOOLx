@@ -2,7 +2,7 @@
 #from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
-from .models import Device
+from .models import Device, Service
 from napalm import get_network_driver
 from django.contrib.auth.decorators import login_required
 
@@ -23,10 +23,12 @@ def home(request: HttpRequest) -> HttpResponse:
 @login_required(login_url='/accounts/login/')
 def statool(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
+    services = Service.objects.all()
     context = {
         'title' : 'NIO Statool',
         'owner' : 'NIO Team',
-        'devices' : devices
+        'devices' : devices,
+        'services' : services
     }
 # in below example, some "context" can be given to be used with the template,
 # allowing easy customization of messages (remember the static blog posts from the video)
