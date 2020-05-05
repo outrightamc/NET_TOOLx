@@ -24,7 +24,7 @@ def home(request: HttpRequest) -> HttpResponse:
 def statool(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
     context = {
-        'title' : 'NIO Statool - Main Dashboard',
+        'title' : 'NIO Statool',
         'owner' : 'NIO Team',
         'devices' : devices
     }

@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', include('statool.urls')),
 #    path('/statool', include ('statool.urls')),
-#    path('accounts/login/', login_view),
-#    path('accounts/register/', register_view),
-#    path('accounts/logout/', logout_view),
+    path('accounts/login/', login_view),
+    path('accounts/register/', register_view),
+    path('accounts/logout/', logout_view),
 ]
