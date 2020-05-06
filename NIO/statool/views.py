@@ -33,19 +33,22 @@ def statool(request: HttpRequest) -> HttpResponse:
 
 # Below scripts redirect us to the "scripts.html" webpage
 # when browsing to http://rasp:7777/statool URL
+# ============
+# Display and redirecto to Webpage
 def scripts(request: HttpRequest) -> HttpResponse:
     return render(request, 'scripts.html')
 
-# ============
+# Give action to button, displaying info at the same page
+# This button can redirect to another page.
 def button(request):
     return render(request, 'scripts.html')
 
+# Runs the script itself, getting the information from the website
 def output(request):
     data=requests.get("https://xkcd.com/1906/")
     print(data.text)
     data=data.text
     return render(request, 'scripts.html' , {'data':data})
-
 
 # ============
 
