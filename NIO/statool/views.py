@@ -15,7 +15,9 @@ def home(request: HttpRequest) -> HttpResponse:
 
 
 # Below is a redirectly to Statool APP 
-# This is an entire new APP
+# in below example, some "context" can be given to be used with the template,
+# allowing easy customization of messages in one page
+# (remember the static blog posts from the video)
 @login_required(login_url='/accounts/login/')
 def statool(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
@@ -26,8 +28,6 @@ def statool(request: HttpRequest) -> HttpResponse:
         'devices' : devices,
         'services' : services
     }
-# in below example, some "context" can be given to be used with the template,
-# allowing easy customization of messages (remember the static blog posts from the video)
     return render(request, 'base.html', context)
 
 
@@ -38,17 +38,30 @@ def statool(request: HttpRequest) -> HttpResponse:
 def scripts(request: HttpRequest) -> HttpResponse:
     return render(request, 'scripts.html')
 
+
 # Give action to button, displaying info at the same page
 # This button can redirect to another page.
 def button(request):
     return render(request, 'scripts.html')
 
+
 # Runs the script itself, getting the information from the website
+# and display it locally (scripts.html)
 def output(request):
     data=requests.get("https://xkcd.com/1906/")
     print(data.text)
     data=data.text
     return render(request, 'scripts.html' , {'data':data})
+
+# Runs the script itself, getting the information from the website
+# and display content in another HTML (output.html)
+def another(request):
+    info=requests.get("https://xkcd.com/1906/")
+    print(info.text)
+    info=info.text
+    return render(request, 'output.html' , {'data':info})
+
+
 
 # ============
 

@@ -9,14 +9,15 @@ from accounts.views import login_view, register_view, logout_view
 
 urlpatterns = [
 # Below line ('') will show default page for http://localhost:7777 requests
-# The following paths (routes) like "statool/" and "devices" were created to
+# The following paths (routes) like "statool/" and "scripts/" were created to
 # forward request based on what was configured in "views.py" file, adding the 
-# .statool name
+# ".statool" or ".scripts" name
 
     path('', views.home, name='network-tools-home'),
     path('statool/', views.statool, name='statool-home'),
     path('scripts/', views.scripts, name='scripts'),
     path('output/', views.output, name='scriptdone'),
+    path('another/', views.another, name='scriptfinal'),
     path('devices/<int:device_id>', views.get_device_stats, name="device"),
     path('services/<int:service_id>', views.get_device_stats, name="service"),
 #    path('services/', views.ccasp, name="ccasp"),

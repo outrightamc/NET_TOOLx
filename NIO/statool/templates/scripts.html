@@ -13,13 +13,15 @@
         <h1>Python Scripts Home</h1> 
         &nbsp;
         &nbsp; 
-        <h2>Choose your script</h2>
+        <h2>From local Def script</h2> 
+        <button onclick="location.href='{% url 'scriptdone' %}'"> From View Def Script</button> 
+        {% if data %}
+        {{ data }}
+        {% endif %}
         &nbsp;
-        &nbsp;  
-    <button onclick="location.href='{% url 'scriptdone' %}'"> Execute Script</button> 
-    {% if data %}
-    {{ data }}
-    {% endif %}
+        &nbsp; 
+        <h2>From File script</h2>
+        <button onclick="location.href='{% url 'scriptfinal' %}'"> From PY file Script</button> 
     </div>
 </body>
 </html>
