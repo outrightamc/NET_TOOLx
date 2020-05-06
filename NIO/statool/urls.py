@@ -15,6 +15,8 @@ urlpatterns = [
 
     path('', views.home, name='network-tools-home'),
     path('statool/', views.statool, name='statool-home'),
+    path('scripts/', views.scripts, name='scripts'),
+    path('output/', views.output, name='scriptdone'),
     path('devices/<int:device_id>', views.get_device_stats, name="device"),
     path('services/<int:service_id>', views.get_device_stats, name="service"),
 #    path('services/', views.ccasp, name="ccasp"),
