@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 #from __future__ import unicode_literals
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from .models import Device, Service
 from napalm import get_network_driver
 from django.contrib.auth.decorators import login_required
 import requests
+from . import datetime
+import sys 
+from subprocess import run, PIPE
 
 # Page, with login to allow access the main/home page.
 # when browsing to http://rasp:7777 URL
@@ -60,6 +63,22 @@ def another(request):
     print(info.text)
     info=info.text
     return render(request, 'output.html' , {'data':info})
+
+#def fromfile(request):
+#    info=requests.get("https://xkcd.com/1906/")
+#    print(info.text)
+#    info=info.text
+#    return render(request, 'output.html' , {'data':info})
+
+def external(request):
+    out= run([sys.executable,'//home//outright//NET_TOOLx//NIO//statool//datetime.py'],shell=False,stdout=PIPE)
+    print(out)
+    return render(request, 'external.html', {'data1':out.stdout})
+
+
+
+
+
 
 
 
